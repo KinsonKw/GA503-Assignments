@@ -8,7 +8,7 @@ public class PryamidGenerator : MonoBehaviour
 
     [SerializeField] private int row = 8;
     [SerializeField] private int col = 8;
-    [SerializeField] private float moveBlock = .5F;
+    [SerializeField] private float moveBlock = .5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +31,7 @@ public class PryamidGenerator : MonoBehaviour
                 go.SetActive(true);
             }
             col -= 1;
-            moveBlock += .5F;
+            moveBlock += .5f;
         }
     }
 }
