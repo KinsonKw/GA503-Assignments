@@ -8,27 +8,33 @@ public class CubeRotation : MonoBehaviour
 
     [SerializeField] private int row = 8;
 
-    [SerializeField] private float speed = 180f;
+    [SerializeField] private float rotateSpeed = 180f;
+
+    [SerializeField] private List<GameObject> cubes;
 
     // Start is called before the first frame update
     void Start()
     {
-        CubeRotate();
+         for (int i = 0; i < row; i++)
+        {
+            GameObject go = Instantiate(prefab, new Vector3(0, i, 0), Quaternion.Euler(0, i * 15, 0));
+            go.SetActive(true);
+            cubes.Add(go);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.up, speed * Time.deltaTime);
+        CubeRotate();
     }
 
     private void CubeRotate()
     {
-        for (int i = 0; i < row; i++)
+       foreach(GameObject cube in cubes)
         {
-            GameObject go = Instantiate(prefab, new Vector3(0, i, 0), Quaternion.Euler(0, i * 15, 0));
-            go.SetActive(true);
+            cube.transform.Rotate(new Vector3(0, rotateSpeed * Time.deltaTime, 0));
         }
-        
-    }
+    }         
+
 }
