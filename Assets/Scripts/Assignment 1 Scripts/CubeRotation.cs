@@ -16,11 +16,11 @@ public class CubeRotation : MonoBehaviour
     void Start()
     {
          for (int i = 0; i < row; i++)
-        {
+         {
             GameObject go = Instantiate(prefab, new Vector3(0, i, 0), Quaternion.Euler(0, i * 15, 0));
             go.SetActive(true);
             cubes.Add(go);
-        }
+         }
     }
 
     // Update is called once per frame
